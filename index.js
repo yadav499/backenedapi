@@ -17,31 +17,32 @@ app.get("/",(req,res)=>{
 
 
 app.post("/register",async(req,res)=>{
-try {
-    const {name, email, password} = req.body;
-    if(!name || !email || !password){
-      return res.status(401).send({
-        success:false,
-        message:"Pls fill all the fields",
+// try {
+//     const {name, email, password} = req.body;
+//     if(!name || !email || !password){
+//       return res.status(401).send({
+//         success:false,
+//         message:"Pls fill all the fields",
 
-      })
-    } 
-    const user = new userModel({name, email, password});
-    await user.save();
-    return res.status(200).send({
-        success:true,
-        message:"Registered Successfully",
-        user
-    })
-} catch (error) {
-    console.log(error);
-    return res.status(500).send({
-        success:false,
-        message:"Error registering",
-        error
-    })
+//       })
+//     } 
+//     const user = new userModel({name, email, password});
+//     await user.save();
+//     return res.status(200).send({
+//         success:true,
+//         message:"Registered Successfully",
+//         user
+//     })
+// } catch (error) {
+//     console.log(error);
+//     return res.status(500).send({
+//         success:false,
+//         message:"Error registering",
+//         error
+//     })
     
-}
+// }
+    console.log(req.body);
 })
 
 
